@@ -16,7 +16,7 @@ class SchwarzschildMetric():
     """
 
     @u.quantity_input(M=u.kg, time=u.s)
-    def __init__(self, M=u.kg, initial_vec_pos, initial_vec_v, time=0):
+    def __init__(self, M, initial_vec_pos, initial_vec_v, time=0):
         """
         Initializes a Schwarzschild metric with given mass,
         start time and spatial coordinates and velocities.
@@ -148,7 +148,3 @@ def calc_schwarzschild_radius(M=u.kg):
         Schwarzschild radius in meter
     """
     return (2 * const.G * M / (const.c ** 2))
-
-
-if __name__ == "__main__":
-    ss = SchwarzschildMetric(1000, [1,2,3], [1,2,3])
