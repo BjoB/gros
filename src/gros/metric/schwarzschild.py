@@ -6,7 +6,7 @@ from scipy import integrate
 from gros.utils import const
 
 
-class SchwarzschildMetric():
+class SchwarzschildMetric:
     """
     Class for calculations with the Schwarschild metric,
     e.g. for solving the geodesic equation for an orbiting object.
@@ -16,7 +16,7 @@ class SchwarzschildMetric():
     """
 
     @u.quantity_input(M=u.kg, time=u.s)
-    def __init__(self, M, initial_vec_pos, initial_vec_v, time=0):
+    def __init__(self, M, initial_vec_pos, initial_vec_v, time=0 * u.s):
         """
         Initializes a Schwarzschild metric with given mass,
         start time and spatial coordinates and velocities.
@@ -35,7 +35,7 @@ class SchwarzschildMetric():
                 time.value,
                 initial_vec_pos,
                 self._calc_initial_dt_dtau(initial_vec_pos, initial_vec_v),
-                initial_vec_v
+                initial_vec_v,
             )
         )
 
@@ -76,8 +76,8 @@ class SchwarzschildMetric():
             Christoffel symbols as (4,4,4) numpy array
         """
         a = self.a.value
-        r2 = r**2
-        a_div_r = a/r
+        r2 = r ** 2
+        a_div_r = a / r
         chrs = np.zeros(shape=(4, 4, 4), dtype=float)
 
         chrs[0, 0, 1] = chrs[0, 1, 0] = -0.5 * a / (r2 * (1 + a_div_r))
@@ -107,7 +107,9 @@ class SchwarzschildMetric():
 
         temp1 = (1 / (c2 * (1 + a / vec_pos[0]))) * (vec_v[0] ** 2)
         temp2 = ((vec_pos[0] ** 2) / c2) * (vec_v[1] ** 2)
-        temp3 = (vec_pos[0] ** 2) / (c ** 2) * (np.sin(vec_pos[1]) ** 2) * (vec_v[2] ** 2)
+        temp3 = (
+            (vec_pos[0] ** 2) / (c ** 2) * (np.sin(vec_pos[1]) ** 2) * (vec_v[2] ** 2)
+        )
         dt_dtau_squared = (1 + temp1 + temp2 + temp3) / (1 + a / vec_pos[0])
         return np.sqrt(dt_dtau_squared) * u.one
 
@@ -128,10 +130,14 @@ class SchwarzschildMetric():
 
         derivs[:4] = vec_x_u[4:8]
         derivs[4] = -2 * chs[0, 0, 1] * vec_x_u[4] * vec_x_u[5]
-        derivs[5] = -1 * (chs[1, 0, 0] * (vec_x_u[4] ** 2) + chs[1, 1, 1] * (vec_x_u[5] ** 2) \
-                    + chs[1, 2, 2] * (vec_x_u[6] ** 2) + chs[1, 3, 3] * (vec_x_u[7] ** 2)
+        derivs[5] = -1 * (
+            chs[1, 0, 0] * (vec_x_u[4] ** 2)
+            + chs[1, 1, 1] * (vec_x_u[5] ** 2)
+            + chs[1, 2, 2] * (vec_x_u[6] ** 2)
+            + chs[1, 3, 3] * (vec_x_u[7] ** 2)
+        )
         derivs[6] = -2 * chs[2, 2, 1] * vec_x_u[6] * vec_x_u[5] - chs[2, 3, 3] * (vec_x_u[7] ** 2)
-        derivs[7] = -2 * (chs[3, 1, 3] * vec_x_u[5] * vec_x_u[7] + chs[3, 2, 3] * vec_x_u[6] * vec_x_u[7])
+        derivs[7] = -2 * chs[3, 1, 3] * vec_x_u[5] * vec_x_u[7] - chs[3, 2, 3] * vec_x_u[6] * vec_x_u[7]
         return derivs
 
 
@@ -147,4 +153,4 @@ def calc_schwarzschild_radius(M=u.kg):
     Returns:
         Schwarzschild radius in meter
     """
-    return (2 * const.G * M / (const.c ** 2))
+    return 2 * const.G * M / (const.c ** 2)
