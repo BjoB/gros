@@ -41,11 +41,12 @@ class SchwarzschildMetric:
             )
         )
 
-    def calc_trajectory_iterator(self, step_size=1, proper_time=0):
+    def generate_trajectory(self, step_size=1, proper_time=0):
         """
-        Iterator for solving the next time step of the geodesic's ODE system.
+        Generator for solving the next time step of the geodesic's ODE system.
 
         Arguments:
+            step_size -- step size [s]
             proper_time -- start proper time [s]
 
         Yields:
