@@ -1,1 +1,0 @@
-from .schwarzschild import SchwarzschildMetric
