@@ -13,7 +13,9 @@ class SchwarzschildMetric:
     Class for calculations with the Schwarschild metric,
     e.g. for solving the geodesic equation for an orbiting object.
 
-    Note: See following lecture notes as an overview of the used formulas:
+    Note: See following lecture notes for a deeper look into the used formulas:
+    https://web.stanford.edu/~oas/SI/SRGR/notes/SchwarzschildSolution.pdf
+    https://arxiv.org/pdf/0904.4184.pdf
     http://www.physics.usu.edu/Wheeler/GenRel/Lectures/GRNotesDecSchwarzschildGeodesicsPost.pdf
     """
 
@@ -30,7 +32,10 @@ class SchwarzschildMetric:
             time -- initial time [s]
         """
         self.M = M.value
-        self.a = -1 * calc_schwarzschild_radius(M).value
+        self.rs = calc_schwarzschild_radius(M).value
+        self.a = -self.rs
+
+        logger.info("Event horizon for given mass is at r={}m.".format(self.rs))
 
         self.initial_vec_x_u = np.hstack(
             (
@@ -60,7 +65,7 @@ class SchwarzschildMetric:
             y0=self.initial_vec_x_u,
             t_bound=1e100,
             first_step=0.9 * step_size,
-            max_step=1.1 * step_size,
+            max_step=5 * step_size,
         )
 
         while True:
@@ -92,7 +97,7 @@ class SchwarzschildMetric:
         chrs = np.zeros(shape=(4, 4, 4), dtype=float)
 
         chrs[0, 0, 1] = chrs[0, 1, 0] = -0.5 * a / ((r ** 2) * (1 + a_div_r))
-        chrs[1, 0, 0] = -0.5 * (1 + a_div_r) * a_div_r / r
+        chrs[1, 0, 0] = -0.5 * (1 + a_div_r) * (const.c.value ** 2) * a_div_r / r
         chrs[1, 1, 1] = -chrs[0, 0, 1]
         chrs[2, 1, 2] = chrs[2, 2, 1] = 1 / r
         chrs[1, 2, 2] = -1 * (r + a)
@@ -136,7 +141,7 @@ class SchwarzschildMetric:
             8-component-vector [u, u'], composed of the derivatives of the input vector
         """
         derivs = np.zeros(shape=vec_x_u.shape, dtype=vec_x_u.dtype)
-        chs = self._calc_christoffel_symbols(vec_x_u[1], vec_x_u[2])
+        chs = self._calc_christoffel_symbols(r=vec_x_u[1], theta=vec_x_u[2])
 
         derivs[:4] = vec_x_u[4:8]
         derivs[4] = -2 * chs[0, 0, 1] * vec_x_u[4] * vec_x_u[5]
