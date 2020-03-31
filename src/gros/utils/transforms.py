@@ -1,4 +1,10 @@
 import numpy as np
+from enum import Enum
+
+
+class CoordinateSystem(Enum):
+    cartesian = 1
+    spherical = 2
 
 
 def spherical_to_cartesian(r, theta, phi, v_r, v_theta, v_phi):
