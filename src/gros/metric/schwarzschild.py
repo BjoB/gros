@@ -2,7 +2,7 @@ import numpy as np
 from astropy import units as u
 from scipy import integrate
 
-from gros.utils import const, log
+from gros.utils import const, log, datahandling as dh
 
 
 logger = log.init_logger(__name__)
@@ -46,13 +46,57 @@ class SchwarzschildMetric:
             )
         )
 
-    def generate_trajectory(self, step_size=1, proper_time=0):
+    def schwarzschild_radius(self):
+        """
+        Returns the Schwarzschild radius for the initialized mass.
+        """
+        return self.rs
+
+    def calculate_trajectory(self, proptime_end, proptime_start=0, step_size=1e-3):
+        """
+        Solve geodesic equations for provided time interval.
+
+        Arguments:
+            proptime_end -- end of interval [s]
+            proptime_start -- start of inteval [s]
+            step_size -- step size [s]
+
+        Returns:
+            (N,9) numpy ndarray with N = number of interations,
+            single row is [tau, t, x, y, z]
+        """
+        tau = []
+        y = []
+
+        for cur_tau, cur_val in self.trajectory_generator(
+            proptime_end=proptime_end,
+            proptime_start=proptime_start,
+            step_size=step_size,
+        ):
+            tau.append(cur_tau), y.append(cur_val)
+
+            logger.debug(
+                "tau={tau}s, t={t}s, r={r}m, dt/dtau={dtdtau}".format(
+                    tau=cur_tau, t=cur_val[0], r=cur_val[1], dtdtau=cur_val[4]
+                )
+            )
+
+        np_tau = np.reshape(tau, (len(tau), 1))
+        np_y = np.array(y)
+
+        # only extract rows for [tau, t, x, y, z]
+        return dh.SpaceTimeData(
+            np.hstack((np_tau, np_y[:, [0, 1, 2, 3]])), self.rs
+        )
+
+    def trajectory_generator(self, proptime_end, proptime_start=0, step_size=1e-3):
         """
         Generator for solving the next time step of the geodesic's ODE system.
 
         Arguments:
+            proptime_end -- end of interval [s]
+            proptime_start -- start proper time [s]
             step_size -- step size [s]
-            proper_time -- start proper time [s]
 
         Yields:
             proper time,
@@ -61,10 +105,11 @@ class SchwarzschildMetric:
         """
         ode_solver = integrate.RK45(
             self._calc_next_velo_and_acc_vec,
-            t0=proper_time,
+            t0=proptime_start,
             y0=self.initial_vec_x_u,
             t_bound=1e100,
-            first_step=0.9 * step_size,
+            rtol=0.25 * step_size,
+            first_step=0.75 * step_size,
             max_step=5 * step_size,
         )
 
@@ -76,8 +121,13 @@ class SchwarzschildMetric:
             rs = -self.a
             rs_border = rs * 1.01
 
+            if ode_solver.t >= proptime_end:
+                break
+
             if current_radius <= rs_border:
-                logger.warning("Nearly reached event horizon at r={}m. Stopping here!".format(rs))
+                logger.warning(
+                    "Nearly reached event horizon at r={}m. Stopping here!".format(rs)
+                )
                 break
 
     def _calc_christoffel_symbols(self, r, theta):
@@ -123,9 +173,7 @@ class SchwarzschildMetric:
 
         temp1 = (1 / (c2 * (1 + a / vec_pos[0]))) * (vec_v[0] ** 2)
         temp2 = ((vec_pos[0] ** 2) / c2) * (vec_v[1] ** 2)
-        temp3 = (
-            (vec_pos[0] ** 2) / c2 * (np.sin(vec_pos[1]) ** 2) * (vec_v[2] ** 2)
-        )
+        temp3 = (vec_pos[0] ** 2) / c2 * (np.sin(vec_pos[1]) ** 2) * (vec_v[2] ** 2)
         dt_dtau_squared = (1 + temp1 + temp2 + temp3) / (1 + a / vec_pos[0])
         return np.sqrt(dt_dtau_squared)
 
@@ -151,10 +199,27 @@ class SchwarzschildMetric:
             + chs[1, 2, 2] * (vec_x_u[6] ** 2)
             + chs[1, 3, 3] * (vec_x_u[7] ** 2)
         )
-        derivs[6] = -2 * chs[2, 2, 1] * vec_x_u[6] * vec_x_u[5] - chs[2, 3, 3] * (vec_x_u[7] ** 2)
-        derivs[7] = -2 * (chs[3, 1, 3] * vec_x_u[5] * vec_x_u[7] + chs[3, 2, 3] * vec_x_u[6] * vec_x_u[7])
+        derivs[6] = -2 * chs[2, 2, 1] * vec_x_u[6] * vec_x_u[5] - chs[2, 3, 3] * (
+            vec_x_u[7] ** 2
+        )
+        derivs[7] = -2 * (
+            chs[3, 1, 3] * vec_x_u[5] * vec_x_u[7]
+            + chs[3, 2, 3] * vec_x_u[6] * vec_x_u[7]
+        )
 
         return derivs
+
+
+# TODO:
+# class Geodesic(SchwarzschildMetric):
+#     """[summary]
+
+#     Arguments:
+#         SchwarzschildMetric {[type]} -- [description]
+#     """
+#     @u.quantity_input(M=u.kg, stop_time=u.s, start_time=u.s)
+#     def __init__(self, M, initial_vec_pos, initial_vec_v, stop_time, start_time=0 * u.s):
+#         super.__init__(M, initial_vec_pos, initial_vec_v, start_time)
 
 
 @u.quantity_input(M=u.kg)
