@@ -7,15 +7,31 @@ class CoordinateSystem(Enum):
     spherical = 2
 
 
-def spherical_to_cartesian(r, theta, phi, v_r, v_theta, v_phi):
-    """Transforms coordinates and velocity from spherical to cartesian.
+class CoordinateConversion(Enum):
+    spherical_to_cartesian = 1
+    cartesian_to_spherical = 2
+
+
+def spherical_to_cartesian(r, theta, phi):
+    """Transforms coordinates from spherical to cartesian.
+
+    Returns:
+        cartesian coordinates
+    """
+    x = r * np.sin(theta) * np.cos(phi)
+    y = r * np.sin(theta) * np.sin(phi)
+    z = r * np.cos(theta)
+
+    return x, y, z
+
+
+def spherical_to_cartesian_with_vel(r, theta, phi, v_r, v_theta, v_phi):
+    """Transforms coordinates and according velocities from spherical to cartesian.
 
     Returns:
         cartesian coordinates and velocities
     """
-    x = r * np.cos(phi) * np.sin(theta)
-    y = r * np.sin(phi) * np.sin(theta)
-    z = r * np.cos(theta)
+    x, y, z = spherical_to_cartesian(r, theta, phi)
 
     v_x = (
         np.sin(theta) * np.cos(phi) * v_r
