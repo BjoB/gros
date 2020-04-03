@@ -46,7 +46,7 @@ class SpaceTimeData:
         """
         return len(self.df.index)
 
-    def plot(self, theme="dark"):
+    def plot(self, attractor_radius=0, theme="dark"):
         TRAJ_COLOR = "skyblue"
         SINGULARITY_COLOR = "darkviolet"
         BLACK_HOLE_COLOR = "darkviolet"
@@ -72,24 +72,11 @@ class SpaceTimeData:
             hoverinfo="text",
         )
 
-        # sphere of r=rs
-        sph_theta = np.linspace(0, 2 * np.pi)
-        sph_phi = np.linspace(0, 2 * np.pi)
-        sph_theta, sph_phi = np.meshgrid(sph_phi, sph_theta)
+        # attractor sphere
+        attractor = self._create_sphere(attractor_radius, "attractor", "yellow", 0.1)
 
-        sph_x, sph_y, sph_z = tf.spherical_to_cartesian(self.rs, sph_theta, sph_phi)
-
-        black_hole = go.Mesh3d(
-            x=sph_x.flatten(),
-            y=sph_y.flatten(),
-            z=sph_z.flatten(),
-            alphahull=0,
-            opacity=0.15,
-            color=BLACK_HOLE_COLOR,
-            text="black hole",
-            name="black hole",
-        )
-        # alternative: center_sphere = go.Surface(x=sph_x, y=sph_y, z=sph_z)
+        # black hole sphere at r=rs
+        black_hole = self._create_sphere(self.rs, "black hole", BLACK_HOLE_COLOR, 0.2)
 
         # trajectories (plot + animation)
         traj1 = go.Scatter3d(
@@ -112,7 +99,7 @@ class SpaceTimeData:
         )
 
         fig = go.Figure(
-            data=[singularity, black_hole, traj1, traj2],
+            data=[singularity, black_hole, attractor, traj1, traj2],
             layout=go.Layout(
                 scene=dict(
                     xaxis=dict(range=[axis_min, axis_max],),
@@ -149,3 +136,23 @@ class SpaceTimeData:
         if theme == "dark":
             fig.update_layout(template="plotly_dark")
         fig.show()
+
+    def _create_sphere(self, radius, name, color, opacity):
+        sph_theta = np.linspace(0, 2 * np.pi)
+        sph_phi = np.linspace(0, 2 * np.pi)
+        sph_theta, sph_phi = np.meshgrid(sph_phi, sph_theta)
+
+        sph_x, sph_y, sph_z = tf.spherical_to_cartesian(radius, sph_theta, sph_phi)
+
+        sphere = go.Mesh3d(
+            x=sph_x.flatten(),
+            y=sph_y.flatten(),
+            z=sph_z.flatten(),
+            alphahull=0,
+            opacity=opacity,
+            color=color,
+            text=name,
+            name=name,
+        )
+
+        return sphere
