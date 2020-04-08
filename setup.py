@@ -20,4 +20,24 @@ setup(
     zip_safe=False,
     setup_requires=['wheel'],
     python_requires='>=3.5',
+    install_requires=[
+        'appdirs==1.4.3'
+        'astropy>=4.0',
+        'colorlog',
+        'enum',
+        'logging',
+        'math',
+        'numpy',
+        'pandas',
+        'plotly>=4.0',
+        'scipy',
+    ],
+    extras_require={
+        'dev': [
+            'black',
+            'pycodestyle',
+            'pyflakes',
+            'pytest',
+        ],
+    },
 )
