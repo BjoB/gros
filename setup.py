@@ -21,7 +21,6 @@ setup(
     setup_requires=['wheel'],
     python_requires='>=3.5',
     install_requires=[
-        'appdirs==1.4.3'
         'astropy>=4.0',
         'colorlog',
         'enum',
