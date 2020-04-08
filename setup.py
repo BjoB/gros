@@ -23,7 +23,6 @@ setup(
     install_requires=[
         'astropy>=4.0',
         'colorlog',
-        'enum',
         'logging',
         'math',
         'numpy',
