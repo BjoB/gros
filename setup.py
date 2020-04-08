@@ -23,8 +23,6 @@ setup(
     install_requires=[
         'astropy>=4.0',
         'colorlog',
-        'logging',
-        'math',
         'numpy',
         'pandas',
         'plotly>=4.0',
