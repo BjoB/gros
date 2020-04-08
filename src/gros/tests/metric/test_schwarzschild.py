@@ -4,7 +4,7 @@ from numpy import pi
 from numpy import sqrt
 
 
-def calc_schwarzschild_trajectory():
+def test_calc_schwarzschild_trajectory():
     r = 140000000000
 
     ss_metric = ss.SchwarzschildMetric(
@@ -13,11 +13,13 @@ def calc_schwarzschild_trajectory():
         initial_vec_v=[1000, 0.0, 0.0]
     )
 
-    for val in ss_metric.trajectory_generator(proptime_end=100, step_size=1):
+    for val in ss_metric.trajectory_generator(proptime_end=10, step_size=1):
         print("tau = {}s, t = {}s, r = {}m, dt/dtau = {}".format(val[0], val[1][0], val[1][1], val[1][4]))
 
     dt_factor = 1/sqrt(1 - ss_metric.schwarzschild_radius() / r)
     print("theoretical dt/dtau = {}".format(dt_factor))
 
+    assert(val[1][0] > val[0])
 
-calc_schwarzschild_trajectory()
+
+test_calc_schwarzschild_trajectory()
