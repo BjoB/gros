@@ -32,3 +32,10 @@ jobs:
     <<: *build-and-test-template
     docker:
       - image: circleci/python:3.8
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build-and-test-python37
+      - build-and-test-python38
