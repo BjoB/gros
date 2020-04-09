@@ -99,25 +99,30 @@ class SpaceTimeData:
             mode="lines",
             line=dict(width=2, color=TRAJ_COLOR),
         )
-        traj_anim = go.Scatter3d(
-            x=x,
-            y=y,
-            z=z,
-            text="trajectory",
-            name="trajectory",
-            mode="lines",
-            line=dict(width=2, color=TRAJ_COLOR),
-        )
+
+        plot_data = [singularity, black_hole, attractor, traj_plot]
+
+        if animation_step_size > 0:
+            traj_anim = go.Scatter3d(
+                x=x,
+                y=y,
+                z=z,
+                text="trajectory",
+                name="trajectory",
+                mode="lines",
+                line=dict(width=2, color=TRAJ_COLOR),
+            )
+            plot_data.append(traj_anim)
 
         fig = go.Figure(
-            data=[singularity, black_hole, attractor, traj_plot, traj_anim],
+            data=plot_data,
             layout=go.Layout(
                 scene=dict(
                     xaxis=dict(range=[axis_min, axis_max],),
                     yaxis=dict(range=[axis_min, axis_max],),
                     zaxis=dict(range=[axis_min, axis_max],),
                 ),
-                title_text="Particle curve in gravitational field",
+                title_text="Particle orbit in gravitational field",
                 hovermode="closest",
                 updatemenus=[
                     dict(
