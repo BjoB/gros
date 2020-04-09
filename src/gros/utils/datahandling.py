@@ -214,7 +214,7 @@ class SpaceTimeData:
             "xanchor": "left",
             "currentvalue": {
                 "font": {"size": 12},
-                "prefix": "t[s]=",
+                "prefix": "tau, t:<br>",
                 "visible": True,
                 "xanchor": "right",
             },
@@ -230,6 +230,7 @@ class SpaceTimeData:
         anim_frames = []
         for k in range(1, self.size(), frame_step_size):
             current_tau = self.df["tau"][k]
+            current_t = self.df["t"][k]
 
             frame = go.Frame(
                 data=[
@@ -256,7 +257,7 @@ class SpaceTimeData:
                         "transition": {"duration": 300},
                     },
                 ],
-                "label": current_tau,
+                "label": "{}s<br>{}s".format(current_tau, current_t),
                 "method": "animate",
             }
             sliders_dict["steps"].append(slider_step)
