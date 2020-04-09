@@ -23,7 +23,7 @@ class SchwarzschildMetric:
     def __init__(self, M, initial_vec_pos, initial_vec_v, time=0 * u.s):
         """
         Initializes a Schwarzschild metric with given mass,
-        start time and spatial coordinates and velocities.
+        start time and spatial coordinates and velocities of a test particle.
 
         Arguments:
             M -- mass of gravitational center [kg]
@@ -85,9 +85,7 @@ class SchwarzschildMetric:
         np_y = np.array(y)
 
         # only extract rows for [tau, t, x, y, z]
-        return dh.SpaceTimeData(
-            np.hstack((np_tau, np_y[:, [0, 1, 2, 3]])), self.rs
-        )
+        return dh.SpaceTimeData(np.hstack((np_tau, np_y[:, [0, 1, 2, 3]])), self.rs)
 
     def trajectory_generator(self, proptime_end, proptime_start=0, step_size=1e-3):
         """
