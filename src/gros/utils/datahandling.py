@@ -206,7 +206,6 @@ class SpaceTimeData:
                     self.max_num_anim_frames
                 )
             )
-        anim_frame_range = list(range(1, self.size(), frame_step_size))
 
         # sliders
         sliders_dict = {
@@ -229,7 +228,7 @@ class SpaceTimeData:
 
         # append frames and slider steps
         anim_frames = []
-        for k in anim_frame_range:
+        for k in range(1, self.size(), frame_step_size):
             current_tau = self.df["tau"][k]
 
             frame = go.Frame(
