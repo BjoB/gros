@@ -100,19 +100,13 @@ class SpaceTimeData:
             line=dict(width=2, color=TRAJ_COLOR),
         )
 
-        plot_data = [singularity, black_hole, attractor, traj_plot]
-
-        if animation_step_size > 0:
-            traj_anim = go.Scatter3d(
-                x=x,
-                y=y,
-                z=z,
-                text="trajectory",
-                name="trajectory",
-                mode="lines",
-                line=dict(width=2, color=TRAJ_COLOR),
-            )
-            plot_data.append(traj_anim)
+        plot_data = [
+            go.Scatter3d(name="dummy"),
+            singularity,
+            black_hole,
+            attractor,
+            traj_plot,
+        ]
 
         fig = go.Figure(
             data=plot_data,
@@ -124,14 +118,7 @@ class SpaceTimeData:
                 ),
                 title_text="Particle orbit in gravitational field",
                 hovermode="closest",
-                updatemenus=[
-                    dict(
-                        # bgcolor="#333333",
-                        font=dict(color="#000000"),
-                        type="buttons",
-                        buttons=[dict(label="Play", method="animate", args=[])],
-                    )
-                ],
+                updatemenus=[],
             ),
         )
 
@@ -168,31 +155,113 @@ class SpaceTimeData:
             fig -- plotly figure
             anim_step_size -- animation step size [s]
         """
-        if anim_step_size > 0:
-            frame_step_size = math.ceil(
-                anim_step_size / self.df["tau"].max() * self.size()
-            )
-            if frame_step_size > self.max_num_anim_frames:
-                frame_step_size = self.max_num_anim_frames
-                logger.warning(
-                    "'animation_step_size' is too large. \
-                        Maximium number of animation frames will be limited to {}.".format(
-                        self.max_num_anim_frames
-                    )
-                )
+        if anim_step_size <= 0:
+            return
 
-            anim_frames = [
-                go.Frame(
-                    data=[
-                        go.Scatter3d(
-                            x=[self.df["x"][k]],
-                            y=[self.df["y"][k]],
-                            z=[self.df["z"][k]],
-                            mode="markers",
-                            marker=dict(color="red", size=3),
-                        )
-                    ]
+        # buttons
+        updatemenus_dict = {
+            # "bgcolor": "#333333",
+            "font": {"color": "#000000"},
+            "type": "buttons",
+            "buttons": [
+                {
+                    "label": "Play",
+                    "method": "animate",
+                    "args": [
+                        None,
+                        {
+                            "frame": {"duration": 500, "redraw": True},
+                            "fromcurrent": True,
+                            "transition": {
+                                "duration": 300,
+                                "easing": "quadratic-in-out",
+                            },
+                        },
+                    ],
+                },
+                {
+                    "label": "Pause",
+                    "method": "animate",
+                    "args": [
+                        [None],
+                        {
+                            "frame": {"duration": 0, "redraw": False},
+                            "mode": "immediate",
+                            "transition": {"duration": 0},
+                        },
+                    ],
+                },
+            ],
+            "showactive": False,
+        }
+
+        # animation frame traits
+        frame_step_size = math.ceil(anim_step_size / self.df["tau"].max() * self.size())
+
+        if frame_step_size > self.max_num_anim_frames:
+            frame_step_size = self.max_num_anim_frames
+            logger.warning(
+                "'animation_step_size' is too large. \
+                    Maximium number of animation frames will be limited to {}.".format(
+                    self.max_num_anim_frames
                 )
-                for k in range(1, self.size(), frame_step_size)
-            ]
-            fig.frames = anim_frames
+            )
+        anim_frame_range = list(range(1, self.size(), frame_step_size))
+
+        # sliders
+        sliders_dict = {
+            "active": 0,
+            "yanchor": "top",
+            "xanchor": "left",
+            "currentvalue": {
+                "font": {"size": 12},
+                "prefix": "t[s]=",
+                "visible": True,
+                "xanchor": "right",
+            },
+            "transition": {"duration": 300, "easing": "cubic-in-out"},
+            "pad": {"b": 10, "t": 50},
+            "len": 0.9,
+            "x": 0.1,
+            "y": 0,
+            "steps": [],
+        }
+
+        # append frames and slider steps
+        anim_frames = []
+        for k in anim_frame_range:
+            current_tau = self.df["tau"][k]
+
+            frame = go.Frame(
+                data=[
+                    go.Scatter3d(
+                        x=[self.df["x"][k]],
+                        y=[self.df["y"][k]],
+                        z=[self.df["z"][k]],
+                        mode="markers",
+                        marker=dict(color="red", size=3),
+                        name="particle",
+                        text="particle",
+                    )
+                ],
+                name=str(current_tau),
+            )
+            anim_frames.append(frame)
+
+            slider_step = {
+                "args": [
+                    [str(current_tau)],
+                    {
+                        "frame": {"duration": 300, "redraw": True},
+                        "mode": "immediate",
+                        "transition": {"duration": 300},
+                    },
+                ],
+                "label": current_tau,
+                "method": "animate",
+            }
+            sliders_dict["steps"].append(slider_step)
+
+        # update figure data
+        fig.frames = anim_frames
+        fig.update_layout(updatemenus=[updatemenus_dict], sliders=[sliders_dict])
