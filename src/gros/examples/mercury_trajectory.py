@@ -15,10 +15,6 @@ def mercury_trajectory():
         initial_vec_v=[0, 0, (47.4 / 57.9e6)]
     )
 
-    # TODO:
-    # put proper time, coordinate time to plot and animation, singularity changes to red color when animating?
-    # add different planet / black hole data to const
-
     radius_sun = 6.9634e8
 
     # calculate trajectory for one orbital period
