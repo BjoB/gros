@@ -115,6 +115,7 @@ class SpaceTimeData:
                     xaxis=dict(range=[axis_min, axis_max],),
                     yaxis=dict(range=[axis_min, axis_max],),
                     zaxis=dict(range=[axis_min, axis_max],),
+                    aspectmode="cube",
                 ),
                 title_text="Particle orbit in gravitational field",
                 hovermode="closest",
