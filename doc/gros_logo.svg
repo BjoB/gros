@@ -12,14 +12,14 @@
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    id="svg8"
    version="1.1"
-   viewBox="0 0 491.28222 370.08817"
-   height="185.04408mm"
-   width="245.6411mm"
+   viewBox="0 0 131.14532 110.68793"
+   height="418.34808"
+   width="495.66733"
    sodipodi:docname="gros_logo.svg"
-   inkscape:version="0.92.4 (f8dce91, 2019-08-02)"
+   inkscape:version="0.92.4 (fd57863, 2020-04-02)"
    inkscape:export-filename="/home/bat/workspace/gros/doc/gros_logo.png"
-   inkscape:export-xdpi="65"
-   inkscape:export-ydpi="65">
+   inkscape:export-xdpi="95.029221"
+   inkscape:export-ydpi="95.029221">
   <defs
      id="defs2">
     <linearGradient
@@ -89,10 +89,10 @@
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
      inkscape:zoom="1"
-     inkscape:cx="401.83395"
-     inkscape:cy="330.84424"
+     inkscape:cx="201.33719"
+     inkscape:cy="207.12706"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g13670"
      showgrid="false"
      showborder="true"
      inkscape:window-width="1850"
@@ -101,12 +101,14 @@
      inkscape:window-y="27"
      inkscape:window-maximized="1"
      fit-margin-top="0"
-     fit-margin-left="2.7755576e-17"
-     fit-margin-right="2.7755576e-17"
+     fit-margin-left="0"
+     fit-margin-right="0"
      fit-margin-bottom="0"
-     scale-x="2"
+     scale-x="0.99804"
      inkscape:pagecheckerboard="false"
-     inkscape:showpageshadow="false" />
+     inkscape:showpageshadow="false"
+     units="px"
+     viewbox-width="202.74" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -123,7 +125,7 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(306.82544,-49.631997)">
+     transform="translate(247.68607,-85.469247)">
     <flowRoot
        xml:space="preserve"
        id="flowRoot11643"
@@ -135,7 +137,7 @@
            height="373.35239"
            x="-2209.0015"
            y="421.06973" /></flowRegion><flowPara
-         id="flowPara11649"></flowPara></flowRoot>    <flowRoot
+         id="flowPara11649" /></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot11651"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
@@ -146,7 +148,7 @@
            height="1213.3953"
            x="-2330.624"
            y="262.6778" /></flowRegion><flowPara
-         id="flowPara11657"></flowPara></flowRoot>    <flowRoot
+         id="flowPara11657" /></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot11659"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
@@ -157,7 +159,7 @@
            height="749.5332"
            x="-2030.8107"
            y="426.72659" /></flowRegion><flowPara
-         id="flowPara11665"></flowPara></flowRoot>    <flowRoot
+         id="flowPara11665" /></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot11667"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
@@ -168,7 +170,7 @@
            height="902.26825"
            x="-1914.8452"
            y="395.61389" /></flowRegion><flowPara
-         id="flowPara11673"></flowPara></flowRoot>    <text
+         id="flowPara11673" /></flowRoot>    <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:22.77017784px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.56925446"
        x="-143.88208"
@@ -191,7 +193,7 @@
            height="110.30865"
            x="-1510.3801"
            y="440.86871" /></flowRegion><flowPara
-         id="flowPara11689"></flowPara></flowRoot>    <text
+         id="flowPara11689" /></flowRoot>    <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458335"
        x="-172.12158"
@@ -201,7 +203,7 @@
          id="tspan11691"
          x="-172.12158"
          y="387.18607"
-         style="stroke-width:0.26458335"></tspan></text>
+         style="stroke-width:0.26458335" /></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458335"
@@ -224,7 +226,7 @@
            height="223.44574"
            x="-1337.8461"
            y="1295.0537" /></flowRegion><flowPara
-         id="flowPara11713"></flowPara></flowRoot>    <flowRoot
+         id="flowPara11713" /></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot11733"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
@@ -235,13 +237,16 @@
            height="84"
            x="-650"
            y="1238.5197" /></flowRegion><flowPara
-         id="flowPara11739"></flowPara></flowRoot>    <g
+         id="flowPara11739" /></flowRoot>    <g
        id="g13670"
-       transform="translate(-20.95393)">
+       transform="matrix(0.48234284,0,0,0.48234284,-169.15706,28.129238)">
       <g
-         id="g14058">
+         id="g14058"
+         transform="matrix(0.83611409,0,0,0.83611409,-5.5256119,-10.831588)"
+         inkscape:export-xdpi="95"
+         inkscape:export-ydpi="95">
         <g
-           transform="translate(-1.1928754e-6,32.115022)"
+           transform="matrix(0.70276965,0,0,0.70276965,5.499533,142.82358)"
            id="g13116">
           <g
              id="g10596"
@@ -1403,63 +1408,69 @@
              rx="23.31426"
              ry="23.337645" />
         </g>
+      </g>
+      <g
+         id="g4227"
+         transform="matrix(0.83611409,0,0,0.83611409,-6.3480346,-2.5760643)"
+         inkscape:export-xdpi="95"
+         inkscape:export-ydpi="95">
+        <text
+           transform="matrix(1.1098607,0,0,0.901014,2.0732141e-6,1.2957589e-7)"
+           id="text11697"
+           y="465.09766"
+           x="-171.05264"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:43.72560501px;line-height:1.25;font-family:Garuda;-inkscape-font-specification:'Garuda, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.09313405"
+           xml:space="preserve"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:43.72680283px;font-family:Garuda;-inkscape-font-specification:'Garuda, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:1.09313405"
+             y="465.09766"
+             x="-171.05264"
+             id="tspan11695"
+             sodipodi:role="line">G   R   O   S</tspan></text>
         <text
            xml:space="preserve"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:43.72560501px;line-height:1.25;font-family:Garuda;-inkscape-font-specification:'Garuda, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.09313405"
-           x="-171.05264"
-           y="465.09766"
-           id="text11697"
-           transform="scale(1.1098607,0.90101398)"><tspan
-             sodipodi:role="line"
-             id="tspan11695"
-             x="-171.05264"
-             y="465.09766"
-             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:43.72680283px;font-family:Garuda;-inkscape-font-specification:'Garuda, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:1.09313405">G   R   O   S</tspan></text>
-      </g>
-      <text
-         id="text13120"
-         y="418.54544"
-         x="-152.31561"
-         style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;font-family:Garuda;-inkscape-font-specification:'Garuda, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332"
-           y="418.54544"
+           style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
            x="-152.31561"
-           id="tspan13118"
-           sodipodi:role="line">eneral</tspan></text>
-      <text
-         id="text13120-3"
-         y="417.49768"
-         x="-66.509895"
-         style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;font-family:Garuda;-inkscape-font-specification:'Garuda, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332"
-           y="417.49768"
+           y="418.54544"
+           id="text13120"><tspan
+             sodipodi:role="line"
+             id="tspan13118"
+             x="-152.31561"
+             y="418.54544"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;font-family:Garuda;-inkscape-font-specification:'Garuda, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332">eneral</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
            x="-66.509895"
-           id="tspan13118-1"
-           sodipodi:role="line">elativity</tspan></text>
-      <text
-         id="text13120-3-7"
-         y="418.54544"
-         x="17.610229"
-         style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;font-family:Garuda;-inkscape-font-specification:'Garuda, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332"
-           y="418.54544"
+           y="417.49768"
+           id="text13120-3"><tspan
+             sodipodi:role="line"
+             id="tspan13118-1"
+             x="-66.509895"
+             y="417.49768"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;font-family:Garuda;-inkscape-font-specification:'Garuda, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332">elativity</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
            x="17.610229"
-           id="tspan13118-1-6"
-           sodipodi:role="line">rbit</tspan></text>
-      <text
-         id="text13120-3-4"
-         y="418.54544"
-         x="100.26984"
-         style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;font-family:Garuda;-inkscape-font-specification:'Garuda, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332"
            y="418.54544"
+           id="text13120-3-7"><tspan
+             sodipodi:role="line"
+             id="tspan13118-1-6"
+             x="17.610229"
+             y="418.54544"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;font-family:Garuda;-inkscape-font-specification:'Garuda, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332">rbit</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
            x="100.26984"
-           id="tspan13118-1-9"
-           sodipodi:role="line">imulator</tspan></text>
+           y="418.54544"
+           id="text13120-3-4"><tspan
+             sodipodi:role="line"
+             id="tspan13118-1-9"
+             x="100.26984"
+             y="418.54544"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;font-family:Garuda;-inkscape-font-specification:'Garuda, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332">imulator</tspan></text>
+      </g>
     </g>
   </g>
 </svg>
