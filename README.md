@@ -38,8 +38,8 @@ This example simulates a particle orbiting the sun with some initial orbital par
 
 ## Earth as a black hole
 
-What if earth was a black hole? The according example shows how a particle would act in short distance of 100m. Especially the perihelion precession effect is visualized as a direct effect of general relativity:
+What if earth was a black hole? The according example shows how a particle would act in short distance of 100m. Especially the perihelion precession is visualized as a direct effect of general relativity. Additionally the gravitational time dilation can be tracked along the animation frames with τ as the proper time of the particle. t is the calculated coordinate time, which can be seen as the measured proper time of a hypothetical observer positioned infinitely far away from the gravitational center.
 
 <p align="center">
-  <img src="doc/earth_black_hole_plot.png">
+  <img src="doc/earth_black_hole_animation_zoomed.png">
 </p>
