@@ -40,11 +40,11 @@ the *Schwarzschild* metric can be derived as
 
 with the *Schwarzschild radius* <img src="https://render.githubusercontent.com/render/math?math=r_s=2GM/c^2"> and the space time coordinates based on spherical coordinates <img src="https://render.githubusercontent.com/render/math?math=(x^0,x^1,x^2,x^3) \mapsto (ct, r,\theta, \phi)">.
 
-The intrinsic space time curvature can be derived from the metric by evaluating the *Christoffel symbols* given by
+The intrinsic space time curvature can be derived from the metric by evaluating the *Christoffel symbols* given with
 
 <img src="https://render.githubusercontent.com/render/math?math=\large \Gamma_{\alpha\nu}^{\beta}=\frac{1}{2}g^{\mu\beta}(\partial_{\alpha}g_{\mu\nu}%2B\partial_{\nu}g_{\mu\alpha}-\partial_\mu g_{\alpha\nu})">
 
-By calculating these coefficients and using the proper time as parameter, the motion of of a particle in the gravitational field can be calculated by solving the system of differential equations given with the geodesic equations
+After calculating these coefficients and using the proper time as parameter, the motion of of a particle in the gravitational field can be retrieved by solving the system of differential equations given with the geodesic equations
 
 <img src="https://render.githubusercontent.com/render/math?math=\large \frac{dx^\mu}{d\tau}+\Gamma_{\alpha\beta}^{\mu}\frac{dx^\alpha}{d\tau}\frac{dx^\beta}{d\tau}=0">
 
