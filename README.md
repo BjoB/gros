@@ -46,7 +46,7 @@ The intrinsic space time curvature can be derived from the metric by evaluating 
 
 After calculating these coefficients and using the proper time as parameter, the motion of of a particle in the gravitational field can be retrieved by solving the system of differential equations given with the geodesic equations
 
-<img src="https://render.githubusercontent.com/render/math?math=\large \frac{d^2 x^\mu}{d\tau^2} + \Gamma_{\alpha\beta}^{\mu}\frac{dx^\alpha}{d\tau}\frac{dx^\beta}{d\tau}=0">
+<img src="https://render.githubusercontent.com/render/math?math=\large \frac{d^2 x^\mu}{d\tau^2} %2B \Gamma_{\alpha\beta}^{\mu}\frac{dx^\alpha}{d\tau}\frac{dx^\beta}{d\tau}=0">
 
 # Examples
 
