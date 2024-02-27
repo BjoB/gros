@@ -32,7 +32,7 @@ $$\large R_{\mu\nu}-\frac{1}{2}g_{\mu\nu}R=\frac{8\pi%20G}{c^4}T_{\mu\nu}$$
 
 with a vanishing energy momentum tensor 
 
-$$\large T_{\mu\nu}=0">
+$$\large T_{\mu\nu}=0$$
 
 the *Schwarzschild* metric can be derived as
 
