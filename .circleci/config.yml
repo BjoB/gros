@@ -1,8 +1,8 @@
 version: 2
 jobs:
-  build-and-test-python37: &build-and-test-template
+  build-and-test-python38: &build-and-test-template
     docker:
-      - image: circleci/python:3.7
+      - image: cimg/python:3.8
 
     working_directory: ~/repo
 
@@ -28,14 +28,13 @@ jobs:
             . venv/bin/activate
             pytest -vv src/gros/tests
 
-  build-and-test-python38: 
+  build-and-test-: 
     <<: *build-and-test-template
     docker:
-      - image: circleci/python:3.8
+      - image: cimg/python:3.8
 
 workflows:
   version: 2
   build_and_test:
     jobs:
-      - build-and-test-python37
       - build-and-test-python38
