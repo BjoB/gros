@@ -42,11 +42,11 @@ with the *Schwarzschild radius* $r_s=2GM/c^2$ and the space time coordinates bas
 
 The intrinsic space time curvature can be derived from the metric by evaluating the *Christoffel symbols* given with
 
-$$\large \Gamma_{\alpha\nu}^{\beta}=\frac{1}{2}g^{\mu\beta}(\partial_{\alpha}g_{\mu\nu}%2B\partial_{\nu}g_{\mu\alpha}-\partial_\mu g_{\alpha\nu})$$
+$$\large \Gamma_{\alpha\nu}^{\beta}=\frac{1}{2}g^{\mu\beta}(\partial_{\alpha}g_{\mu\nu}+\partial_{\nu}g_{\mu\alpha}-\partial_\mu g_{\alpha\nu})$$
 
 After calculating these coefficients and using the proper time as parameter, the motion of of a particle in the gravitational field can be retrieved by solving the system of differential equations given with the geodesic equations
 
-$$\large \frac{d^2 x^\mu}{d\tau^2} %2B \Gamma_{\alpha\beta}^{\mu}\frac{dx^\alpha}{d\tau}\frac{dx^\beta}{d\tau}=0$$
+$$\large \frac{d^2 x^\mu}{d\tau^2}+\Gamma_{\alpha\beta}^{\mu}\frac{dx^\alpha}{d\tau}\frac{dx^\beta}{d\tau}=0$$
 
 # Examples
 
